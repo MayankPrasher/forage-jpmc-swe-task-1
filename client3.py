@@ -64,15 +64,15 @@ if __name__ == "__main__":
 class clienttest(unittest.TestCase):
  def test_getDataPoint_calculatePrice(self):
          quotes = [
-             {'top_ask':{'price':141.4,'size':36},'timestamp':'2024-08-08 15:50:50:435323','top_bid':{'price':140.45,'size':109},'id':'0.10997469771','stock':'ABC'},
-             {'top_ask':{'price':141.54,'size':4},'timestamp':'2024-08-08 15:50:50:435323','top_bid':{'price':138.83,'size':81},'id':'0.10997469771','stock':'DEF'}
+             {'top_ask':{'price':109.14,'size':211},'timestamp':'23-01-2024  6:31:31 AM','top_bid':{'price':107,'size':19},'id':'0.10997469771','stock':'ABC'},
+             {'top_ask':{'price':108.69,'size':32},'timestamp':'21-01-2024  8:11:02 AM','top_bid':{'price':107.2,'size':30},'id':'0.10997469771','stock':'DEF'}
          ]
          for quote in quotes:
               self.assertEqual(getDataPoint(quote),(quote['stock'],quote['top_bid']['price'],quote['top_ask']['price'],(quote['top_bid']['price']+quote['top_ask']['price'])/2))
  def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
          quotes = [
-             {'top_ask':{'price':139.4,'size':36},'timestamp':'2024-08-08 15:50:50:435323','top_bid':{'price':140.45,'size':109},'id':'0.10997469771','stock':'ABC'},
-             {'top_ask':{'price':141.54,'size':4},'timestamp':'2024-08-08 15:50:50:435323','top_bid':{'price':138.83,'size':81},'id':'0.10997469771','stock':'DEF'}
+             {'top_ask':{'price':107.6,'size':98},'timestamp':'21-01-2024  10:36:09 PM','top_bid':{'price':107,'size':19},'id':'0.10997469771','stock':'ABC'},
+             {'top_ask':{'price':108.69,'size':32},'timestamp':'21-01-2024  8:11:02 AM','top_bid':{'price':107.2,'size':30},'id':'0.10997469771','stock':'DEF'}
          ]
          for quote in quotes:
              self.assertEqual(getDataPoint(quote),(quote['stock'],quote['top_bid']['price'],quote['top_ask']['price'],(quote['top_bid']['price']+quote['top_ask']['price'])/2))
